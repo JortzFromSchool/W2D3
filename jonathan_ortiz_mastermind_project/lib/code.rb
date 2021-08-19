@@ -59,13 +59,15 @@ class Code
   end
 
   def num_near_matches(guess)
-    count = 0
+
     num_pegs_guess = Hash.new(0)
     num_pegs = Hash.new(0)
+
     @pegs.each {|peg| num_pegs[peg] += 1}
     guess.pegs.each {|peg| num_pegs_guess[peg] += 1}
     
     near_matches = 0
+    
     num_pegs_guess.each_key do |peg|
       if num_pegs_guess[peg] >= num_pegs[peg]
         near_matches += num_pegs[peg]
